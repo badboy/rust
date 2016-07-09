@@ -136,6 +136,11 @@ fn check_llvm_version(build: &Build, llvm_config: &Path) {
 /// This uses the CMake build system and an existing LLVM build directory to
 /// compile the project.
 pub fn compiler_rt(build: &Build, target: &str) {
+    // FIXME: emscripten doesn't use compiler-rt and can't build it without further hacks
+    if target.contains("emscripten") {
+        return;
+    }
+
     let dst = build.compiler_rt_out(target);
     let arch = target.split('-').next().unwrap();
     let mode = if build.config.rust_optimize {"Release"} else {"Debug"};
