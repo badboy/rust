@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 export MSYS_NO_PATHCONV=1
 
@@ -156,7 +156,7 @@ else
   args="$args --volume $root_dir:/checkout:ro"
   args="$args --volume $objdir:/checkout/obj"
   args="$args --volume $HOME/.cargo:/cargo"
-  args="$args --volume $HOME/rustsrc:$HOME/rustsrc"
+  args="$args --volume $HOME/code/rust:$HOME/rustsrc"
   args="$args --volume /tmp/toolstate:/tmp/toolstate"
   args="$args --env LOCAL_USER_ID=`id -u`"
 fi
