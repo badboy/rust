@@ -4,7 +4,7 @@ use crate::spec::{Target, TargetOptions};
 pub fn target() -> Target {
     let base = opts("ios", Arch::Arm64_sim);
     Target {
-        llvm_target: "arm64-apple-ios-sim".to_string(),
+        llvm_target: "arm64-apple-ios-simulator".to_string(),
         pointer_width: 64,
         data_layout: "e-m:o-i64:64-i128:128-n32:64-S128".to_string(),
         arch: "aarch64".to_string(),
@@ -18,7 +18,7 @@ pub fn target() -> Target {
             // These arguments are not actually invoked - they just have
             // to look right to pass App Store validation.
             bitcode_llvm_cmdline: "-triple\0\
-                arm64-apple-ios-sim\0\
+                arm64-apple-ios14.0-simulator\0\
                 -emit-obj\0\
                 -disable-llvm-passes\0\
                 -target-abi\0\

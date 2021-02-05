@@ -23,16 +23,15 @@ fn target_cpu(arch: Arch) -> String {
         X86_64 => "core2",
         X86_64_macabi => "core2",
         Arm64_macabi => "apple-a12",
-        Arm64_sim => "apple-a12",
+        Arm64_sim => "apple-a7",
     }
     .to_string()
 }
 
 fn link_env_remove(arch: Arch) -> Vec<String> {
     match arch {
-        Armv7 | Armv7s | Arm64 | I386 | X86_64 => vec!["MACOSX_DEPLOYMENT_TARGET".to_string()],
+        Armv7 | Armv7s | Arm64 | I386 | X86_64 | Arm64_sim => vec!["MACOSX_DEPLOYMENT_TARGET".to_string()],
         X86_64_macabi | Arm64_macabi => vec!["IPHONEOS_DEPLOYMENT_TARGET".to_string()],
-        Arm64_sim => vec!["IPHONEOS_DEPLOYMENT_TARGET".to_string()],
     }
 }
 
