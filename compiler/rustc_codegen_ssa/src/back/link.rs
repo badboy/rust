@@ -2185,7 +2185,6 @@ fn add_apple_sdk(cmd: &mut dyn Linker, sess: &Session, flavor: LinkerFlavor) {
     let sdk_name = match (arch.as_str(), os.as_str()) {
         ("aarch64", "tvos") => "appletvos",
         ("x86_64", "tvos") => "appletvsimulator",
-        ("arm", "ios") if llvm_target.contains("sim") => "iphonesimulator",
         ("arm", "ios") => "iphoneos",
         ("aarch64", "ios") if llvm_target.contains("macabi") => "macosx",
         ("aarch64", "ios") if llvm_target.contains("sim") => "iphonesimulator",
