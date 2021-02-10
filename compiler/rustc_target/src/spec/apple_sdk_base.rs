@@ -23,7 +23,7 @@ fn target_cpu(arch: Arch) -> String {
         X86_64 => "core2",
         X86_64_macabi => "core2",
         Arm64_macabi => "apple-a12",
-        Arm64_sim => "apple-a7",
+        Arm64_sim => "apple-a12",
     }
     .to_string()
 }
